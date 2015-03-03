@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ExampleApplication")]
+[assembly: AssemblyTitle("YouTube Extractor")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ExampleApplication")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyProduct("YouTube Extractor")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0111bc98-bb98-4e04-8607-f5139023e47b")]
+[assembly: Guid("0111bc98-bb98-4e04-8607-f5139023e47c")]
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version

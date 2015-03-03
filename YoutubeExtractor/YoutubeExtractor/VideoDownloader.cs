@@ -21,7 +21,7 @@ namespace YoutubeExtractor
         { }
 
         /// <summary>
-        /// Occurs when the downlaod progress of the video file has changed.
+        /// Occurs when the download progress of the video file has changed.
         /// </summary>
         public event EventHandler<ProgressEventArgs> DownloadProgressChanged;
 
@@ -29,7 +29,7 @@ namespace YoutubeExtractor
         /// Starts the video download.
         /// </summary>
         /// <exception cref="IOException">The video file could not be saved.</exception>
-        /// <exception cref="WebException">An error occured while downloading the video.</exception>
+        /// <exception cref="WebException">An error occurred while downloading the video.</exception>
         public override void Execute()
         {
             this.OnDownloadStarted(EventArgs.Empty);
@@ -41,6 +41,7 @@ namespace YoutubeExtractor
                 request.AddRange(0, this.BytesToDownload.Value - 1);
             }
 
+            int lCounter = 0;
             // the following code is alternative, you may implement the function after your needs
             using (WebResponse response = request.GetResponse())
             {
@@ -59,16 +60,20 @@ namespace YoutubeExtractor
 
                             copiedBytes += bytes;
 
-                            var eventArgs = new ProgressEventArgs((copiedBytes * 1.0 / response.ContentLength) * 100);
+                            var eventArgs = new ProgressEventArgs((copiedBytes * 1.0 / response.ContentLength) * 100, copiedBytes);
 
-                            if (this.DownloadProgressChanged != null)
+                            lCounter = lCounter + 1;
+                            if (lCounter % 50 == 0)
                             {
-                                this.DownloadProgressChanged(this, eventArgs);
+                               if (this.DownloadProgressChanged != null)
+                               {
+                                  this.DownloadProgressChanged(this, eventArgs);
 
-                                if (eventArgs.Cancel)
-                                {
-                                    cancel = true;
-                                }
+                                  if (eventArgs.Cancel)
+                                  {
+                                     cancel = true;
+                                  }
+                               }
                             }
                         }
                     }
